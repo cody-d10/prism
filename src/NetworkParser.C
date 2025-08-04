@@ -41,18 +41,6 @@ NetworkParser::NetworkParser()
 {
 }
 
-NetworkParser * NetworkParser::_instance = nullptr;
-
-NetworkParser &
-NetworkParser::instance()
-{
-  // Create the _instance if it does not exist
-  if (_instance == nullptr)
-    _instance = new NetworkParser();
-
-  return *_instance;
-}
-
 void
 NetworkParser::clear()
 {
