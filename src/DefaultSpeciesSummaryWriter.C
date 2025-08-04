@@ -24,7 +24,7 @@ DefaultSpeciesSummaryWriter::DefaultSpeciesSummaryWriter() : SpeciesSummaryWrite
 void
 DefaultSpeciesSummaryWriter::addMiscSummary()
 {
-  const auto & np = NetworkParser::instance();
+  NetworkParser np;
   const auto & species = np.species();
 
   const string const_warning =
@@ -174,7 +174,7 @@ DefaultSpeciesSummaryWriter::addSpeciesSummary()
     reaction_lister(srcs, balanced, sinks, _summary_str);
   };
 
-  const auto & np = NetworkParser::instance();
+  NetworkParser np;
   const auto & species = np.species();
 
   _summary_str << "unique-species:" << endl;
