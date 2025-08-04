@@ -11,7 +11,8 @@ protected:
     sbuf = std::cout.rdbuf();
     // Redirect cout to our stringstream buffer or any other ostream
     std::cout.rdbuf(buffer.rdbuf());
-    prism::NetworkParser::instance().clear();
+	prism::NetworkParser np;
+	np.clear();
   }
 
   void TearDown() override
@@ -27,7 +28,8 @@ protected:
     {
       std::cout.rdbuf(sbuf);
     }
-    prism::NetworkParser::instance().clear();
+	prism::NetworkParser np;
+	np.clear();  
   }
 
   std::stringstream buffer{};
@@ -36,7 +38,7 @@ protected:
 
 TEST_F(DefaultTableWriterTest, MultipleReactionsSameNote)
 {
-  auto & np = prism::NetworkParser::instance();
+  prism::NetworkParser np;
 
   np.parseNetwork("inputs/notes_test.yaml");
   np.writeReactionTable("outputs/notes_test.tex");
