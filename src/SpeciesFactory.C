@@ -429,8 +429,8 @@ SpeciesFactory::writeSpeciesSummary(const string & file, SpeciesSummaryWriterBas
     lumped_str_map[it.second].push_back(it.first);
 
   writer.addLumpedSummary(lumped_str_map);
-  writer.addMiscSummary();
-  writer.addSpeciesSummary();
+  writer.addMiscSummary(_species);
+  writer.addSpeciesSummary(_species);
 
   ofstream out(file);
   out << writer.summaryString().str();
