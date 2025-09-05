@@ -40,7 +40,9 @@ NetworkParser::NetworkParser()
     _xsec_id(0)
 {
 }
-
+  
+auto np = NetworkParser();
+  
 void
 NetworkParser::clear()
 {
@@ -327,13 +329,6 @@ NetworkParser::tableHelper(
     if (rxn_count % writer.maxRows() == 0 || rxn_count == rxn_list.size())
       (writer.*endTable)();
   }
-}
-
-void
-NetworkParser::writeSpeciesSummary(const string & file)
-{
-  auto writer = DefaultSpeciesSummaryWriter();
-  writeSpeciesSummary(file, writer);
 }
 
 void
