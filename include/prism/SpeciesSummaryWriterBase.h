@@ -19,6 +19,8 @@
 namespace prism
 {
 
+class Species;
+
 class SpeciesSummaryWriterBase
 {
 
@@ -46,7 +48,7 @@ public:
   /**
    * Method for adding any random summaries to the top of the summary file
    */
-  virtual void addMiscSummary() = 0;
+  virtual void addMiscSummary(const std::vector<std::shared_ptr<Species>> & species) = 0;
   /**
    * Method for summarizing which species have been lumped into which others
    */
@@ -54,7 +56,7 @@ public:
   /**
    * Method for summarizing the reactions that each species is involved in
    */
-  virtual void addSpeciesSummary() = 0;
+  virtual void addSpeciesSummary(const std::vector<std::shared_ptr<Species>> & species)= 0;
 
 protected:
   /// the stream that is used to construct the summary
