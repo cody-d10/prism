@@ -171,10 +171,11 @@ public:
   void writeReactionTable(const std::string & file, TableWriterBase & writer) const;
   /**
    * Writes a summary of the species in the network to a file
-   * this method using the default summary writer provided by PRISM
+   * this method uses whatever custom summary writer that is provided to it
    * @param file the file which you want to write the species summary to
+   * @param writer the custom species writer that will be used to create the species summary
    */
-  void writeSpeciesSummary(const std::string & file);
+  void writeSpeciesSummary(const std::string & file) const;
   /**
    * Writes a summary of the species in the network to a file
    * this method uses whatever custom summary writer that is provided to it
